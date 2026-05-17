@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALFAIZ SWEETS | Authentic Desi Taste</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="loader"><div class="spinner"></div></div>
+
+    <header>
+        <a href="home.html" class="logo">ALFAIZ SWEETS</a>
+        <button id="theme-toggle">🌙 Dark Mode</button>
+        <nav>
+            <ul>
+                <li><a href="home.html" class="active">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Authentic Desi Sweets</h1>
+        <p>Handcrafted traditions delivered to your doorstep.</p><br>
+        <a href="#shop" class="btn">Explore Menu</a>
+    </section>
+
+    <main class="container" id="shop">
+        <h2 class="section-title">Trending Delicacies</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1573801240325-132d7877995a?auto=format&fit=crop&w=500&q=80" alt="Gulab Jamun">
+                <div class="card-content">
+                    <h3>Gulab Jamun</h3>
+                    <p class="price">Rs. 1200 / kg</p>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1601050633647-8f5275254241?auto=format&fit=crop&w=500&q=80" alt="Laddu">
+                <div class="card-content">
+                    <h3>Motichoor Laddu</h3>
+                    <p class="price">Rs. 1000 / kg</p>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1599307734110-388910248ad7?auto=format&fit=crop&w=500&q=80" alt="Kaju Katli">
+                <div class="card-content">
+                    <h3>Kaju Katli</h3>
+                    <p class="price">Rs. 2500 / kg</p>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 ALFAIZ SWEETS. Refined with Passion.</p>
+    </footer>
+
+    <script>
+        window.addEventListener("load", () => {
+            const loader = document.getElementById("loader");
+            loader.style.opacity = "0";
+            setTimeout(() => loader.style.display = "none", 500);
+        });
+        
+        const btn = document.getElementById("theme-toggle");
+        const currentTheme = localStorage.getItem("theme");
+        
+        // Check for saved theme preference
+        if (currentTheme === "dark") {
+            document.documentElement.setAttribute("data-theme", "dark");
+            btn.textContent = "☀️ Light Mode";
+        }
+
+        btn.addEventListener("click", () => {
+            let theme = document.documentElement.getAttribute("data-theme");
+            if (theme === "light") {
+                document.documentElement.setAttribute("data-theme", "dark");
+                btn.textContent = "☀️ Light Mode";
+                localStorage.setItem("theme", "dark");
+            } else {
+                document.documentElement.setAttribute("data-theme", "light");
+                btn.textContent = "🌙 Dark Mode";
+                localStorage.setItem("theme", "light");
+            }
+        });
+        
+        </script>
+</body>
+</html>
